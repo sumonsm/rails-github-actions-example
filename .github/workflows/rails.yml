@@ -50,7 +50,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1.170.0
         with:
-          ruby-version: 3.0
+          ruby-version: 2.6
       # - name: Set up Node
       #   uses: actions/setup-node@v1
       #   with:
@@ -58,7 +58,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get -yqq install libpq-dev build-essential libcurl4-openssl-dev
-          gem install bundler
+          gem install bundler -v 2.4.22
           bundle install --jobs 4 --retry 3
           # yarn install
       - name: Setup test database
