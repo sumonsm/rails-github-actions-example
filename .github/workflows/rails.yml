@@ -46,9 +46,9 @@ jobs:
       #   options: --entrypoint redis-server
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1.170.0
         with:
           ruby-version: 2.6.x
       - name: Set up Node
@@ -80,4 +80,5 @@ jobs:
           POSTGRES_PASSWORD: postgres
           PGPORT: ${{ job.services.postgres.ports[5432] }}
           RAILS_ENV: test
-        run: rspec
+        timeout-minutes: 20
+        run: rspec  # --index=${{ matrix.ci_node_index }} --total=${{ matrix.ci_node_total }} --hash=${{ github.sha }}"
