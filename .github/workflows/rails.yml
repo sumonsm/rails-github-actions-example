@@ -81,4 +81,4 @@ jobs:
           PGPORT: ${{ job.services.postgres.ports[5432] }}
           RAILS_ENV: test
         timeout-minutes: 20
-        run: rspec  # --index=${{ matrix.ci_node_index }} --total=${{ matrix.ci_node_total }} --hash=${{ github.sha }}"
+        run: bin/ci  --index=${{ matrix.ci_node_index }} --total=${{ matrix.ci_node_total }} --hash=${{ github.sha }}"
